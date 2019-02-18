@@ -5,5 +5,12 @@ ws.onopen = () => {
 };
 
 ws.onmessage = (event) => {
-	alert(event.data);
+	displayData(event);
+}
+
+const displayData = (event) => {
+	let dataList = document.getElementById('dataList');
+	let li = document.createElement('li');
+	li.innerText = event.data;
+	dataList.appendChild(li);
 }
