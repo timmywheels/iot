@@ -7,22 +7,56 @@ const buttonStatusApiUrl = `https://us.wio.seeed.io/v1/node/GroveButtonD1/presse
 
 
 
-// const ledColorAndCountApiUrl = `https://us.wio.seeed.io/v1/node/GroveLedWs2812D2/clear/${totalLedCount}/${rgbHexString}?access_token=${accessToken}`;
+
+const getRandomColor = () => {
+  var letters = '0123456789ABCDEF';
+  color = ""
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+const getRandomNumber = () => {
+	return Math.floor(Math.random() * 60) + 1  
+}
+
 const ledForm = document.getElementById('ledForm');
 
 ledForm.addEventListener('submit', (e) => {
 	e.preventDefault();
 });
 
+const getRandomLedCountAndColor = () => {
+	
+	let totalLedCount = getRandomNumber();
+	let rgbHexString = getRandomColor();
+	console.log(rgbHexString)
+	const ledColorAndCountApiUrl = `https://us.wio.seeed.io/v1/node/GroveLedWs2812D2/clear/${totalLedCount}/${rgbHexString}?access_token=${accessToken}`;
+
+	const xhr = new XMLHttpRequest();
+
+	xhr.open("POST", ledColorAndCountApiUrl, true);
+
+	xhr.onload = function() {
+		
+		const data = JSON.parse(this.response);
+
+		console.log(data);
+	}
+
+	xhr.send();
+}
+
 const setLedCountAndColor = (_totalLedCount, _rgbHexString) => {
-
-
 
 	let totalLedCount = parseInt(_totalLedCount);
 
 	console.log("totalLedCount:", totalLedCount);
 
 	let rgbHexString = _rgbHexString;
+
+
 
 	console.log("rgbHexString:", rgbHexString);
 

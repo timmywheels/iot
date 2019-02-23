@@ -13,6 +13,8 @@
 		<button id="getTempBtn" onclick="getTemperature('f')">Get Temp</button>
 
 		<button id="getBtnStatus" onclick="checkButtonStatus()">Get Button Status</button>
+
+		<button id="getBtnStatus" onclick="getRandomLedCountAndColor()">RANDOM LED</button>
 		
 		<form id="ledForm" onsubmit="setLedCountAndColor(document.getElementById('ledCountInput').value, document.getElementById('rgbColorInput').value.replace('#', ''))">
 			<input id="ledCountInput" type="text" placeholder="LED Count">
