@@ -14,9 +14,9 @@
 
 		<button id="getBtnStatus" onclick="checkButtonStatus()">Get Button Status</button>
 		
-		<form id="ledForm" onsubmit="setLedCountAndColor(document.getElementById('ledCountInput').value, document.getElementById('rgbColorInput').value)">
+		<form id="ledForm" onsubmit="setLedCountAndColor(document.getElementById('ledCountInput').value, document.getElementById('rgbColorInput').value.replace('#', ''))">
 			<input id="ledCountInput" type="text" placeholder="LED Count">
-			<input id="rgbColorInput" type="text" placeholder="RGB Color">
+			<input id="rgbColorInput" type="color" placeholder="RGB Color">
 			<button id="ledSubmitBtn" type="submit">SET LED</button>
 		</form>
 
