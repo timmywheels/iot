@@ -10,18 +10,22 @@
 	<h1>IoT Dashboard</h1>
 	<div>
 		<div id="currentTemp"></div>
+		<h3>Get Current Temperature</h3>
 		<button id="getTempBtn" onclick="getTemperature('f')">Get Temp</button>
-
+		<hr/>
+		<h3>Get Button Status</h3>
 		<button id="getBtnStatus" onclick="checkButtonStatus()">Get Button Status</button>
-
+		<hr/>
+		<h3>Generate Random LED Count & Color</h3>
 		<button id="getBtnStatus" onclick="getRandomLedCountAndColor()">RANDOM LED</button>
-		
+		<hr/>
+		<h3>Set LED Count & Color</h3>
 		<form id="ledForm" onsubmit="setLedCountAndColor(document.getElementById('ledCountInput').value, document.getElementById('rgbColorInput').value.replace('#', ''))">
 			<input id="ledCountInput" type="text" placeholder="LED Count">
 			<input id="rgbColorInput" type="color" placeholder="RGB Color">
 			<button id="ledSubmitBtn" type="submit">SET LED</button>
 		</form>
-
+		<hr/>
 		<ul id="dataList"></ul>
 		
 	</div>

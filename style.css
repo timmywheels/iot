@@ -3,8 +3,13 @@ body{
 	padding: 100px 20px;
 	font-size: 16px;
 }
-h1{
+h1, h2, h3, h4, h5, h6{
 	text-align: center;
+}
+
+hr{
+	width: 50%;
+	opacity: 0.15;
 }
 
 #currentTemp {
@@ -26,6 +31,47 @@ button {
     border-radius: 4px;
     width: 25%;
     min-width: 139px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    text-align: center;
+    border: 0px solid rgb(60, 212, 131);
+    cursor: pointer;
+    vertical-align: middle;
+    font-family: 'Montserrat', sans-serif;
+    height: 47px;
+}
+
+input[type='text']{
+	display: block;
+	margin: 20px auto;
+    box-shadow: rgba(205, 205, 205, 0.5) 0px 3px 13px 0px;
+    font-size: .75em;
+    font-weight: 300;
+    color: #aaa;
+    transition: transform 400ms ease, opacity 400ms ease;
+    padding: 0 30px;
+    border-radius: 4px;
+    width: 25%;
+    min-width: 139px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    text-align: center;
+    border: 0px solid rgb(60, 212, 131);
+    cursor: pointer;
+    vertical-align: middle;
+    font-family: 'Montserrat', sans-serif;
+    height: 47px;
+}
+
+input[type='color'] {
+	display: block;
+	margin: 20px auto;
+    box-shadow: rgba(205, 205, 205, 0.5) 0px 3px 13px 0px;
+    font-size: .75em;
+    font-weight: 300;
+    color: #aaa;
+    transition: transform 400ms ease, opacity 400ms ease;
+    border-radius: 4px;
     text-transform: uppercase;
     letter-spacing: 0.2em;
     text-align: center;

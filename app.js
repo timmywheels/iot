@@ -14,11 +14,14 @@ const getRandomColor = () => {
   for (var i = 0; i < 6; i++) {
     color += letters[Math.floor(Math.random() * 16)];
   }
+  console.log("color: #" + color);
   return color;
 }
 
 const getRandomNumber = () => {
-	return Math.floor(Math.random() * 60) + 1  
+	const randomNumber =  Math.floor(Math.random() * 60) + 1;
+	console.log("LED Count:", randomNumber);
+	return randomNumber;
 }
 
 const ledForm = document.getElementById('ledForm');
@@ -31,19 +34,11 @@ const getRandomLedCountAndColor = () => {
 	
 	let totalLedCount = getRandomNumber();
 	let rgbHexString = getRandomColor();
-	console.log(rgbHexString)
 	const ledColorAndCountApiUrl = `https://us.wio.seeed.io/v1/node/GroveLedWs2812D2/clear/${totalLedCount}/${rgbHexString}?access_token=${accessToken}`;
 
 	const xhr = new XMLHttpRequest();
 
 	xhr.open("POST", ledColorAndCountApiUrl, true);
-
-	xhr.onload = function() {
-		
-		const data = JSON.parse(this.response);
-
-		console.log(data);
-	}
 
 	xhr.send();
 }
