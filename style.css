@@ -1,9 +1,39 @@
 body{
 	font-family: 'Varela', sans-serif;
 	padding: 100px 20px;
+	font-size: 16px;
 }
 h1{
 	text-align: center;
+}
+
+#currentTemp {
+    font-size: 50px;
+    text-align: center;
+    padding: 20px 0;
+}
+
+button {
+	display: block;
+	margin: 20px auto;
+    background-color: rgb(60, 212, 131);
+    box-shadow: rgba(60, 212, 131, 0.5) 0px 3px 13px 0px;
+    font-size: .75em;
+    font-weight: 300;
+    color: rgb(255, 255, 255);
+    transition: transform 400ms ease, opacity 400ms ease;
+    padding: 0 30px;
+    border-radius: 4px;
+    width: 25%;
+    min-width: 139px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    text-align: center;
+    border: 0px solid rgb(60, 212, 131);
+    cursor: pointer;
+    vertical-align: middle;
+    font-family: 'Montserrat', sans-serif;
+    height: 47px;
 }
 
 #dataList{
@@ -26,3 +56,4 @@ h1{
 	padding: 10px 0;
 	border-bottom: 1px solid #f0f0f0;
 }
+

@@ -9,7 +9,19 @@
 <body>
 	<h1>IoT Dashboard</h1>
 	<div>
+		<div id="currentTemp"></div>
+		<button id="getTempBtn" onclick="getTemperature('f')">Get Temp</button>
+
+		<button id="getBtnStatus" onclick="checkButtonStatus()">Get Button Status</button>
+		
+		<form id="ledForm" onsubmit="setLedCountAndColor(document.getElementById('ledCountInput').value, document.getElementById('rgbColorInput').value)">
+			<input id="ledCountInput" type="text" placeholder="LED Count">
+			<input id="rgbColorInput" type="text" placeholder="RGB Color">
+			<button id="ledSubmitBtn" type="submit">SET LED</button>
+		</form>
+
 		<ul id="dataList"></ul>
+		
 	</div>
 	<script type="text/javascript" src="app.js"></script>
 </body>
