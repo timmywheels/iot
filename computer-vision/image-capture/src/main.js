@@ -19,7 +19,7 @@ const PORT_CONFIG = {
 
 async function captureFrame() {
     try {
-        console.log("\nIdentifying the microcontroller's serial port:");
+        console.log("Connecting to microcontroller...");
         
         // Create serial port connection
         const port = new SerialPort(PORT_CONFIG);
@@ -30,22 +30,25 @@ async function captureFrame() {
             port.on('error', reject);
         });
 
-        console.log("Connected to incoming microcontroller...");
+        console.log("Connected...");
 
         // Wait for Arduino to be ready
         await new Promise(resolve => setTimeout(resolve, 5000));
 
         // Clear input buffer
+        console.debug('Flushing input buffer...');
         port.flush();
 
-        // Request picture by sending the 'a' key
-        // to the microcontroller
+        // Request picture by sending a single, arbitrary 
+        // byte to the microcontroller
+        console.debug('Capturing image...');
         port.write('a');
 
         // Collect image data
         let imageBytes = Buffer.alloc(0);
         
         // Wait for data
+        console.debug('Waiting for data stream...');
         await new Promise(resolve => setTimeout(resolve, 5000));
 
         while (imageBytes.length < NUM_PIXELS) {
@@ -56,6 +59,7 @@ async function captureFrame() {
         }
 
         // Create raw image buffer
+        console.debug('Creating image buffer...');
         const rawImageData = Buffer.from(imageBytes);
 
         // Create grayscale image using Sharp
@@ -78,12 +82,13 @@ async function captureFrame() {
         port.close();
         console.log("Finished.");
 
-    } catch (error) {
-        console.error('\nError:', error);
-        console.log("\nIs the incoming microcontroller connected and active?");
-        console.log("Is the incoming microcontroller's IDE's Serial Monitor deactivated?");
-        console.log("Is the incoming port name correct?");
-        console.log("Exiting program...");
+    } catch (err) {
+        console.error('Error connecting to microcontroller...');
+        console.error(err)
+        console.log("- Is the incoming microcontroller connected and active?");
+        console.log("- Is the incoming microcontroller's IDE's Serial Monitor deactivated?");
+        console.log("- Is the incoming port name correct?");
+        console.log("Exiting...");
         process.exit(1);
     }
 }
